@@ -15,7 +15,7 @@ func (r *Router) Download(c *fiber.Ctx) error {
 	}).Info("downloading image")
 
 	var resp response
-	conn := rpc.Connection("downloader_service:50052")
+	conn := rpc.Connection("downloader:50052")
 	defer conn.Close()
 
 	req := &downloaderpb.DownloadRequest{

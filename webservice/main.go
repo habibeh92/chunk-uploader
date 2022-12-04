@@ -9,5 +9,5 @@ import (
 func main() {
 	app := fiber.New()
 	routes.CreateRouter(app).Routing()
-	log.Fatal(app.Listen(":" + "4444"))
+	log.Fatal(app.Listen(":4444"))
 }

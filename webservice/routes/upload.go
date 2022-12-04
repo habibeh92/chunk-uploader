@@ -41,7 +41,7 @@ func (r *Router) Upload(c *fiber.Ctx) error {
 		return resp.invalidArgument(c, "Data field is missing")
 	}
 
-	conn := rpc.Connection("uploader_service:50051")
+	conn := rpc.Connection("uploader:50051")
 	defer conn.Close()
 
 	_, err = ch.chunkUpload(conn, c)

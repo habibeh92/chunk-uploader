@@ -22,7 +22,7 @@ func main() {
 	fmt.Println("Uploader service is listening to port 50051 ...")
 
 	// Make a listener
-	lis, err := net.Listen("tcp", "uploader_service:50051")
+	lis, err := net.Listen("tcp", "uploader:50051")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}

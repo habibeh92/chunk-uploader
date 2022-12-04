@@ -22,7 +22,7 @@ func main() {
 	fmt.Println("Downloader service is listening to port 50052 ...")
 
 	// Make a listener
-	lis, err := net.Listen("tcp", "downloader_service:50052")
+	lis, err := net.Listen("tcp", "downloader:50052")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}
