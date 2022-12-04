@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  # base service definition
+  webservice:
+    container_name: webservice
+    build:
+      context: .
+      dockerfile: webservice/Dockerfile
+    volumes:
+      - shared-data:/app/repository
+    ports:
+      - '4444:4444'
+    command: "go run webservice/main.go"
+    restart: on-failure
+
+  uploader:
+    container_name: uploader
+    build:
+      context: .
+      dockerfile: uploader/Dockerfile
+    volumes:
+      - shared-data:/app/repository
+    command: "go run uploader/main.go"
+    restart: on-failure
+
+  downloader:
+    container_name: downloader
+    build:
+      context: .
+      dockerfile: downloader/Dockerfile
+    volumes:
+      - shared-data:/app/repository
+    command: "go run downloader/main.go"
+    restart: on-failure
+
+volumes:
+  shared-data:

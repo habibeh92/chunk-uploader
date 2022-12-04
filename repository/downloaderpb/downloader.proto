@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package downloaderpb;
+option go_package = "./repository/downloaderpb";
+
+message DownloadRequest {
+  string sha256 = 1;
+}
+
+message DownloadResponse {
+  string data = 1;
+}
+
+service DownloadService {
+
+  rpc Download (DownloadRequest) returns (DownloadResponse) {};
+}
